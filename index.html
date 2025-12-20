@@ -5,83 +5,37 @@
   <title>岐阜北高校 科学部缶サット班 公式サイト | 部活紹介・活動報告</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="岐阜北高校科学部缶サット班の公式サイトです。部活紹介、活動日・時間、活動場所、部員構成、活動報告などを掲載しています。初心者も歓迎！">
-<meta name="keywords" content="岐阜北高校, 科学部, 缶サット, 部活, 宇宙甲子園, 活動報告">
-
+  <link rel="canonical" href="https://example.com/club_site/">
+  <!-- critical CSS (minified & inlined) -->
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #f5f5f5;
-      line-height: 1.6;
-    }
-    header {
-      background-color: #003366;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    nav {
-      background-color: #0055aa;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section {
-      background-color: white;
-      margin: 20px;
-      padding: 20px;
-      border-radius: 8px;
-    }
-    footer {
-      text-align: center;
-      padding: 10px;
-      color: #666;
-    }
-   .header-image {
-      width: 100%;
-      max-width: 600px;
-      height: auto;
-      margin: 15px auto;
-      display: block;
-      border-radius: 8px;
-    }
-
-.to-top {
-  position: fixed;        
-  bottom: 20px;           
-  right: 20px;            
-  background-color: #0055aa; 
-  color: white;          
-  padding: 12px 15px;     
-  border-radius: 50%;     
-  text-decoration: none;  
-  font-size: 18px;       
-  font-weight: bold;     
-}
-
-.to-top:hover {
-  background-color: #003366; 
-}
-
-
+    html{scroll-behavior:smooth}*{box-sizing:border-box}body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f5f5f5;line-height:1.6;color:#111}
+    a{color:#0055aa}header{background:#003366;color:#fff;padding:20px;text-align:center}
+    nav{background:#0055aa;padding:10px;text-align:center}
+    nav a{color:#fff;margin:0 10px;text-decoration:none;font-weight:700}
+    .container-section{background:#fff;margin:20px;padding:20px;border-radius:8px}
+    footer{text-align:center;padding:10px;color:#666}
+    .header-image{width:100%;max-width:600px;height:auto;margin:15px auto;display:block;border-radius:8px}
+    .to-top{position:fixed;bottom:20px;right:20px;background:#0055aa;color:#fff;padding:12px 15px;border-radius:50%;text-decoration:none;font-size:18px;font-weight:700}
+    .to-top:hover{background:#003366}
+    .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip-link:focus{left:10px;top:10px;width:auto;height:auto;padding:8px 12px;background:#003366;color:#fff;border-radius:4px;z-index:9999}
+    a:focus{outline:3px solid #ffbf47;outline-offset:3px}
   </style>
 </head>
 <body>
-  
+
+  <a class="skip-link" href="#main">コンテンツへスキップ</a>
+
   <div id="top"></div>
 
-  <header>
+  <header role="banner">
     <h1>科学部缶サット班<br>公式サイト</h1>
-    <img src="images/sky.png" alt="公式マーク" class="header-image">
+    <!-- 画像に遅延読み込みと幅・高さ、非同期デコードを追加 -->
+    <img src="images/sky.png" alt="公式マーク" class="header-image" width="600" height="300" loading="lazy" decoding="async">
     <p>岐阜北高校</p>
   </header>
 
-  <nav>
+  <nav role="navigation" aria-label="メインナビゲーション">
     <a href="#about">部活紹介</a>
     <a href="#schedule">活動日</a>
     <a href="#place">活動場所</a>
@@ -93,25 +47,71 @@
     <a href="enkaku.html">部活の沿革</a>
   </nav>
 
-  <section id="about">
-    <h2>部活紹介</h2>
-    <p>
-      私たち缶サット班は、宇宙甲子園世界大会出場を目的に和気あいあいと活動しています。
-      初心者・経験者ともに大歓迎です！
-    </p>
-  </section>
+  <main id="main" role="main" tabindex="-1">
+    <section id="about" class="container-section" aria-labelledby="about-h2">
+      <h2 id="about-h2">部活紹介</h2>
+      <p>私たち缶サット班は、宇宙甲子園世界大会出場を目的に和気あいあいと活動しています。初心者・経験者ともに大歓迎です！</p>
+    </section>
 
-  <section id="schedule">
-    <h2>活動日・時間</h2>
-    <ul>
-      <li>平日：16:00〜18:00</li>
-      <li>休日：原則休み</li>
-    </ul>
-  </section>
+    <section id="schedule" class="container-section" aria-labelledby="schedule-h2">
+      <h2 id="schedule-h2">活動日・時間</h2>
+      <ul>
+        <li>平日：16:00〜18:00</li>
+        <li>休日：原則休み</li>
+      </ul>
+    </section>
 
-  <section id="place">
-  <h2>活動場所</h2>
-  <p>
+    <section id="place" class="container-section" aria-labelledby="place-h2">
+      <h2 id="place-h2">活動場所</h2>
+      <p>英知館（南舎）1階 生物講義室</p>
+    </section>
+
+    <section id="members" class="container-section" aria-labelledby="members-h2">
+      <h2 id="members-h2">部員構成</h2>
+      <p>1年生：5名</p>
+      <p>2年生：4名</p>
+      <p>3年生：1名(受験)</p>
+    </section>
+
+    <section id="responsibilities" class="container-section" aria-labelledby="resp-h2">
+      <h2 id="resp-h2">担当</h2>
+      <ul>
+        <li>スライド、スケジュール、パラシュート担当： ２名</li>
+        <li>設計担当：２名</li>
+        <li>プログラミング担当： ４名</li>
+        <li>基盤担当： ０名</li>
+        <li>シュミレーション担当： １名</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="container-section" aria-labelledby="contact-h2">
+      <h2 id="contact-h2">お問い合わせ</h2>
+      <p>
+        インスタグラム：<a href="https://www.instagram.com/gfkt_cans/" target="_blank" rel="noopener noreferrer">https://www.instagram.com/gfkt_cans/</a>
+        <br>
+        またはお問い合わせフォーム: <a href="https://forms.gle/Lfv4s1fXZB9yqqXR9" target="_blank" rel="noopener noreferrer">https://forms.gle/Lfv4s1fXZB9yqqXR9</a>
+      </p>
+    </section>
+
+    <section id="external" class="container-section" aria-labelledby="external-h2">
+      <h2 id="external-h2">関連サイト</h2>
+      <p>私たちの活動に関連する情報は、以下のサイトもご覧ください。</p>
+      <ul>
+        <li><a href="http://www.space-koshien.com/" target="_blank" rel="noopener noreferrer">宇宙甲子園公式サイト</a></li>
+        <li><a href="https://school.gifu-net.ed.jp/wordpress/gifukita-hs/" target="_blank" rel="noopener noreferrer">岐阜北高校公式ページ</a></li>
+        <li><a href="https://medar.jp/" target="_blank" rel="noopener noreferrer">MEDAR公式ページ</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <p>© 2025 科学部缶サット班</p>
+  </footer>
+
+  <a href="#top" class="to-top" aria-label="ページトップへ移動" title="ページトップへ移動">▲</a>
+
+</body>
+</html>
     英知館（南舎）1階 生物講義室
   </p>
 </section>
