@@ -18,10 +18,15 @@
     footer {text-align:center;padding:10px;color:#666}
     .to-top {position:fixed;bottom:20px;right:20px;background:#0055aa;color:#fff;padding:12px;border-radius:50%;text-decoration:none;font-size:18px;font-weight:bold;display:inline-flex;align-items:center;justify-content:center;height:48px;width:48px}
     .to-top:hover{background:#003366}
+    /* スキップリンク（index と同様） */
+    .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip-link:focus{left:10px;top:10px;width:auto;height:auto;padding:8px 12px;background:#003366;color:#fff;border-radius:4px;z-index:9999}
+    a:focus{outline:3px solid #ffbf47;outline-offset:3px}
   </style>
 </head>
 <body>
 
+<a class="skip-link" href="#main">コンテンツへスキップ</a>
 <div id="top"></div>
 
 <header>
@@ -33,108 +38,62 @@
   <a href="index.html">ホーム</a>
   <a href="news.html">活動報告</a>
   <a href="enkaku.html">部活の沿革</a>
+  <a href="roles.html">担当紹介</a>
 </nav>
 
-<div class="news">
+<main id="main" role="main" tabindex="-1">
+  <div class="news">
 
-  <!-- 新規記事：3dプリンターの導入 -->
-  <div class="article">
-    <h2>3dプリンターの導入</h2>
-    <p class="date"><time datetime="2025-12-22">2025年12月22日</time></p>
-    <p>これまで故障してつかえなかった３dプリンターを新調して使えるようになりました。金欠です！！！！</p>
+    <!-- 新規記事：3dプリンターの導入 -->
+    <div class="article">
+      <h2>3dプリンターの導入</h2>
+      <p class="date"><time datetime="2025-12-22">2025年12月22日</time></p>
+      <p>これまで故障してつかえなかった３dプリンターを新調して使えるようになりました。金欠です！！！！</p>
+    </div>
+
+    <!-- 既存記事 -->
+    <div class="article">
+      <h2>話し合いをしました</h2>
+      <p class="date">2025年12月17日</p>
+      <p>
+        今日は久々に各担当が集まり、全国大会に関する話し合いを行いました。
+        白熱した議論となり、長時間話し合いました。
+        全国大会に向けて方針を改めて固めることができたので、これからも頑張ります。
+        寄付も受付中です！！！！！！！！！ 
+      </p>
+      <img src="images/hue.jpg" alt="話し合いの様子" loading="lazy" decoding="async" style="aspect-ratio:3/2">
+    </div>
+
+    <div class="article">
+      <h2>大会に出場しました</h2>
+      <p class="date">2025年10月4日</p>
+      <p>
+        岐阜地方大会に出場し、日頃の成果を発揮しました。
+        前日4日間にかなりの残業をしたおかげで優勝することができました。
+        これから全国大会に向けてもう一度計画を練り直してしっかり準備を行い残業をしないように心がけたいです。
+        これからも応援よろしくお願いします。
+        寄付も受付中です！！！！！！！！！ 
+      </p>
+      <img src="images/tournament.jpg" alt="大会の様子" loading="lazy" decoding="async" style="aspect-ratio:3/2">
+    </div>
+
+    <div class="article">
+      <h2>10月3日の練習風景</h2>
+      <p class="date">2025年10月3日</p>
+      <p>
+        この日は次の日に向けて急いで作業中です。帰宅時間は朝6時（翌日）でした。大会は8時からです。
+        次はこうならないように計画を立てて実行して行くことを目標にします。(泣)
+      </p>
+      <img src="images/practice1.jpg" alt="練習風景" loading="lazy" decoding="async" style="aspect-ratio:3/2">
+    </div>
+
   </div>
-
-  <!-- 既存記事 -->
-  <div class="article">
-    <h2>話し合いをしました</h2>
-    <p class="date">2025年12月17日</p>
-    <p>
-      今日は久々に各担当が集まり、全国大会に関する話し合いを行いました。
-      白熱した議論となり、長時間話し合いました。
-      全国大会に向けて方針を改めて固めることができたので、これからも頑張ります。
-      寄付も受付中です！！！！！！！！！ 
-    </p>
-    <img src="images/hue.jpg" alt="話し合いの様子" loading="lazy" decoding="async" style="aspect-ratio:3/2">
-  </div>
-
-  <div class="article">
-    <h2>大会に出場しました</h2>
-    <p class="date">2025年10月4日</p>
-    <p>
-      岐阜地方大会に出場し、日頃の成果を発揮しました。
-      前日4日間にかなりの残業をしたおかげで優勝することができました。
-      これから全国大会に向けてもう一度計画を練り直してしっかり準備を行い残業をしないように心がけたいです。
-      これからも応援よろしくお願いします。
-      寄付も受付中です！！！！！！！！！ 
-    </p>
-    <img src="images/tournament.jpg" alt="大会の様子" loading="lazy" decoding="async" style="aspect-ratio:3/2">
-  </div>
-
-  <div class="article">
-    <h2>10月3日の練習風景</h2>
-    <p class="date">2025年10月3日</p>
-    <p>
-      この日は次の日に向けて急いで作業中です。帰宅時間は朝6時（翌日）でした。大会は8時からです。
-      次はこうならないように計画を立てて実行して行くことを目標にします。(泣)
-    </p>
-    <img src="images/practice1.jpg" alt="練習風景" loading="lazy" decoding="async" style="aspect-ratio:3/2">
-  </div>
-
-</div>
+</main>
 
 <footer>
   <p>© 2025 科学部缶サット班</p>
 </footer>
 
-<a href="#top" class="to-top" aria-label="ページトップへ移動">▲</a>
-</body>
-</html>
-  
-    <!-- 記事③ -->
-  <div class="article">
-    <h2>話し合いをしました</h2>
-    <p class="date">2025年12月17日</p>
-    <p>
-      今日は久々に各担当が集まり、全国大会に関する話し合いを行いました。
-      白熱した議論となり、長時間話し合いました。
-      全国大会に向けて方針を改めて固めることができたので、これからも頑張ります。
-      寄付も受付中です！！！！！！！！！
-    </p>
-     <img src="images/hue.jpg" alt="話し合いの様子">
-  </div>
-
-
-    <!-- 記事② -->
-  <div class="article">
-    <h2>大会に出場しました</h2>
-    <p class="date">2025年10月4日</p>
-    <p>
-      岐阜地方大会に出場し、日頃の成果を発揮しました。
-      前日4日間にかなりの残業をしたおかげで優勝することができました。
-      これから全国大会に向けてもう一度計画を練り直してしっかり準備を行い残業をしないように心がけたいです。
-      これからも応援よろしくお願いします。
-      寄付も受付中です！！！！！！！！！
-    </p>
-    <img src="images/tournament.jpg" alt="大会の様子">
-  </div>
-
-  <!-- 記事① -->
-  <div class="article">
-    <h2>10月3日の練習風景</h2>
-    <p class="date">2025年10月3日</p>
-    <p>
-      この日は次の日に向けて急いで作業中です。帰宅時間は朝6時（翌日）でした。大会は8時からです。
-      次はこうならないように計画を立てて実行して行くことを目標にします。(泣)
-    </p>
-    <img src="images/practice1.jpg" alt="練習風景">
-  </div>
-
-</div>
-
-<footer>
-  <p>© 2025 科学部缶サット班</p>
-</footer>
-
-<a href="#top" class="to-top">▲</a>  
+<a href="#top" class="to-top" aria-label="ページトップへ移動" title="ページトップへ移動">▲</a>
 </body>
 </html>
