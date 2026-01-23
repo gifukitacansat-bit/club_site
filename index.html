@@ -24,14 +24,25 @@
     .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
     .skip-link:focus{left:10px;top:10px;width:auto;height:auto;padding:8px 12px;background:#003366;color:#fff;border-radius:4px;z-index:9999}
     a:focus{outline:3px solid #ffbf47;outline-offset:3px}
+    /* --- ハンバーガーメニュー --- */
+    .menu-btn {display:none;position:absolute;top:15px;left:15px;background:#003366;color:#fff;border:none;padding:10px 12px;font-size:24px;border-radius:4px;cursor:pointer;z-index:1000;}
+    @media (max-width: 768px) {
+    nav {display:none;flex-direction:column;text-align:left;}
+    nav.show {display:flex;}
+    .menu-btn {display:block;}
+    nav a {display:block;padding:10px;margin:5px 0;}
+    }
+
   </style>
 </head>
+
 <body>
 
 <a class="skip-link" href="#main">コンテンツへスキップ</a>
 <div id="top"></div>
 
 <header role="banner">
+  <button class="menu-btn" aria-label="メニューを開閉">☰</button>
   <h1>科学部缶サット班<br>公式サイト</h1>
   <img src="images/sky.png" alt="公式マーク" class="header-image" width="600" height="300" loading="lazy" decoding="async">
   <p>岐阜北高校</p>
@@ -130,7 +141,17 @@
 
 <a href="#top" class="to-top" aria-label="ページトップへ移動" title="ページトップへ移動">▲</a>
 
+<script>
+  const menuBtn = document.querySelector('.menu-btn');
+  const nav = document.querySelector('nav');
+
+  menuBtn.addEventListener('click', () => {
+    nav.classList.toggle('show');
+  });
+</script>  
+
 </body>
 </html>
+
 
 
