@@ -42,13 +42,14 @@
 <div id="top"></div>
 
 <header role="banner">
-  <button class="menu-btn" aria-label="メニューを開閉">☰</button>
+  <button class="menu-btn" aria-label="メニューを開閉" aria-expanded="false" aria-controls="global-nav"> ☰ </button>
+
   <h1>科学部缶サット班<br>公式サイト</h1>
   <img src="images/sky.png" alt="公式マーク" class="header-image" width="600" height="300" loading="lazy" decoding="async">
   <p>岐阜北高校</p>
 </header>
 
-<nav role="navigation" aria-label="メインナビゲーション">
+<nav id="global-nav" role="navigation" aria-label="メインナビゲーション">
   <a href="#about">部活紹介</a>
   <a href="#schedule">活動日</a>
   <a href="#place">活動場所</a>
@@ -143,15 +144,17 @@
 
 <script>
   const menuBtn = document.querySelector('.menu-btn');
-  const nav = document.querySelector('nav');
+  const nav = document.querySelector('#global-nav');
 
   menuBtn.addEventListener('click', () => {
-    nav.classList.toggle('show');
+  const isOpen = nav.classList.toggle('show');
+  menuBtn.setAttribute('aria-expanded', isOpen);
   });
 </script>  
 
 </body>
 </html>
+
 
 
 
