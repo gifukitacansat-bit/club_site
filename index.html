@@ -16,14 +16,12 @@
       line-height:1.7;color:#111;font-size:16px;}
      h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); }
      h2 { font-size: 1.4rem; }
-    header {background:#003366;color:#fff;padding:10px 20px;text-align:center;min-height:80px;
-      position: fixed;top: 0;left: 0;width: 100%;z-index: 1000;}
-    main { padding-top: 100px; } /* headerの高さに合わせて調整 */
+    header{background:#003366;color:#fff;padding:20px;text-align:center;min-height:150px}
     nav{background:#0055aa;padding:10px;text-align:center;min-height:44px}
     nav a{color:#fff;margin:0 10px;text-decoration:none;font-weight:700}
     .container-section{background:#fff;margin:20px;padding:20px;border-radius:8px}
     footer{text-align:center;padding:10px;color:#666}
-    .header-image {width:80%;max-width:300px;height:auto;margin:10px auto;display:block;border-radius:8px;aspect-ratio:2/1;object-fit:contain;}
+    .header-image{width:100%;max-width:600px;height:auto;margin:15px auto;display:block;border-radius:8px;aspect-ratio:2/1;object-fit:contain}
     .to-top{position:fixed;bottom:20px;right:20px;background:#0055aa;color:#fff;padding:12px 15px;border-radius:50%;text-decoration:none;font-size:18px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;height:48px;width:48px}
     .to-top:hover{background:#003366}
     .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
@@ -150,16 +148,8 @@
 <script>
   const menuBtn = document.querySelector('.menu-btn');
   const nav = document.querySelector('#global-nav');
-
-  // ナビ対象の section id を指定（写真や大きな画像は除外）
-  const sectionIds = [
-    "about","schedule","place","members",
-    "responsibilities","music","contact","external"
-  ];
-
-  const sections = sectionIds.map(id => document.getElementById(id));
-  const navLinks = Array.from(document.querySelectorAll('nav a[href^="#"]'))
-                        .filter(link => sectionIds.includes(link.getAttribute('href').substring(1)));
+  const sections = document.querySelectorAll('main section');
+  const navLinks = document.querySelectorAll('nav a');
 
   // ハンバーガーメニュー開閉
   menuBtn.addEventListener('click', () => {
@@ -172,7 +162,7 @@
     let scrollPos = window.scrollY || window.pageYOffset;
 
     sections.forEach(section => {
-      const top = section.offsetTop - 160; // ヘッダー固定分オフセット
+      const top = section.offsetTop - 80; // ヘッダー分オフセット
       const bottom = top + section.offsetHeight;
       const id = section.getAttribute('id');
 
@@ -192,11 +182,11 @@
   // ナビリンクをクリックしたとき、ヘッダー分オフセットしてスクロール
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
-      const targetId = link.getAttribute('href').substring(1);
+      const targetId = link.getAttribute('href').substring(1); // #を除く
       const targetSection = document.getElementById(targetId);
       if (targetSection) {
-        e.preventDefault();
-        const headerOffset = 160; // ヘッダー固定分
+        e.preventDefault(); // デフォルトのジャンプをキャンセル
+        const headerOffset = 80; // ヘッダーの高さ
         const elementPosition = targetSection.offsetTop;
         const offsetPosition = elementPosition - headerOffset;
 
@@ -204,12 +194,6 @@
           top: offsetPosition,
           behavior: "smooth"
         });
-
-        // スマホ用：リンククリックでメニュー閉じる
-        if(nav.classList.contains('show')){
-          nav.classList.remove('show');
-          menuBtn.setAttribute('aria-expanded', false);
-        }
       }
     });
   });
@@ -217,11 +201,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
