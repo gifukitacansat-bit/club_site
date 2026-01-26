@@ -16,7 +16,8 @@
       line-height:1.7;color:#111;font-size:16px;}
      h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); }
      h2 { font-size: 1.4rem; }
-    header{background:#003366;color:#fff;padding:20px;text-align:center;min-height:150px}
+　　header {background:#003366;color:#fff;padding:20px;text-align:center;min-height:150px;position: fixed;top: 0;left: 0;width: 100%;z-index: 1000;}
+    main {padding-top: 170px;}
     nav{background:#0055aa;padding:10px;text-align:center;min-height:44px}
     nav a{color:#fff;margin:0 10px;text-decoration:none;font-weight:700}
     .container-section{background:#fff;margin:20px;padding:20px;border-radius:8px}
@@ -162,7 +163,7 @@
     let scrollPos = window.scrollY || window.pageYOffset;
 
     sections.forEach(section => {
-      const top = section.offsetTop - 80; // ヘッダー分オフセット
+      const top = section.offsetTop - 160; // ヘッダー固定分オフセット
       const bottom = top + section.offsetHeight;
       const id = section.getAttribute('id');
 
@@ -182,11 +183,11 @@
   // ナビリンクをクリックしたとき、ヘッダー分オフセットしてスクロール
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
-      const targetId = link.getAttribute('href').substring(1); // #を除く
+      const targetId = link.getAttribute('href').substring(1);
       const targetSection = document.getElementById(targetId);
       if (targetSection) {
-        e.preventDefault(); // デフォルトのジャンプをキャンセル
-        const headerOffset = 80; // ヘッダーの高さ
+        e.preventDefault();
+        const headerOffset = 160; // ヘッダー固定分
         const elementPosition = targetSection.offsetTop;
         const offsetPosition = elementPosition - headerOffset;
 
@@ -194,15 +195,20 @@
           top: offsetPosition,
           behavior: "smooth"
         });
+
+        // スマホ用：リンククリックでメニュー閉じる
+        if(nav.classList.contains('show')){
+          nav.classList.remove('show');
+          menuBtn.setAttribute('aria-expanded', false);
+        }
       }
     });
   });
 </script>
 
- 
-
 </body>
 </html>
+
 
 
 
