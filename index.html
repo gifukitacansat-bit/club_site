@@ -148,6 +148,8 @@
 <script>
   const menuBtn = document.querySelector('.menu-btn');
   const nav = document.querySelector('#global-nav');
+  const sections = document.querySelectorAll('main section');
+  const navLinks = document.querySelectorAll('nav a');
 
   // ハンバーガーメニュー開閉
   menuBtn.addEventListener('click', () => {
@@ -156,9 +158,6 @@
   });
 
   // スクロールでナビの active 切替
-  const sections = document.querySelectorAll('main section');
-  const navLinks = document.querySelectorAll('nav a');
-
   window.addEventListener('scroll', () => {
     let scrollPos = window.scrollY || window.pageYOffset;
 
@@ -179,11 +178,32 @@
       }
     });
   });
+
+  // ナビリンクをクリックしたとき、ヘッダー分オフセットしてスクロール
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const targetId = link.getAttribute('href').substring(1); // #を除く
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        e.preventDefault(); // デフォルトのジャンプをキャンセル
+        const headerOffset = 80; // ヘッダーの高さ
+        const elementPosition = targetSection.offsetTop;
+        const offsetPosition = elementPosition - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
+    });
+  });
 </script>
+
  
 
 </body>
 </html>
+
 
 
 
