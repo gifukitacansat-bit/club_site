@@ -149,8 +149,16 @@
 <script>
   const menuBtn = document.querySelector('.menu-btn');
   const nav = document.querySelector('#global-nav');
-  const sections = document.querySelectorAll('main section');
-  const navLinks = document.querySelectorAll('nav a');
+
+  // ナビ対象の section id を指定（写真や大きな画像は除外）
+  const sectionIds = [
+    "about","schedule","place","members",
+    "responsibilities","music","contact","external"
+  ];
+
+  const sections = sectionIds.map(id => document.getElementById(id));
+  const navLinks = Array.from(document.querySelectorAll('nav a[href^="#"]'))
+                        .filter(link => sectionIds.includes(link.getAttribute('href').substring(1)));
 
   // ハンバーガーメニュー開閉
   menuBtn.addEventListener('click', () => {
@@ -208,6 +216,7 @@
 
 </body>
 </html>
+
 
 
 
