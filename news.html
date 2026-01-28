@@ -174,10 +174,65 @@
   </div>
 </main>
 
-<footer>
+<footer role="contentinfo">
   <p>© 2026 科学部缶サット班</p>
+  <p>最終更新日：2026年1月</p>
 </footer>
 
 <a href="#top" class="to-top" aria-label="ページトップへ移動" title="ページトップへ移動">▲</a>
+
+<script>
+  const menuBtn = document.querySelector('.menu-btn');
+  const nav = document.querySelector('#global-nav');
+  const sections = document.querySelectorAll('main section');
+  const navLinks = document.querySelectorAll('nav a');
+
+  // ハンバーガーメニュー開閉
+  menuBtn.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('show');
+    menuBtn.setAttribute('aria-expanded', isOpen);
+  });
+
+  // スクロールでナビの active 切替
+  window.addEventListener('scroll', () => {
+    let scrollPos = window.scrollY || window.pageYOffset;
+
+    sections.forEach(section => {
+      const top = section.offsetTop - 80; // ヘッダー分オフセット
+      const bottom = top + section.offsetHeight;
+      const id = section.getAttribute('id');
+
+      if (scrollPos >= top && scrollPos < bottom) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          link.removeAttribute('aria-current');
+          if (link.getAttribute('href') === '#' + id) {
+            link.classList.add('active');
+            link.setAttribute('aria-current', 'page');
+          }
+        });
+      }
+    });
+  });
+
+  // ナビリンクをクリックしたとき、ヘッダー分オフセットしてスクロール
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const targetId = link.getAttribute('href').substring(1); // #を除く
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        e.preventDefault(); // デフォルトのジャンプをキャンセル
+        const headerOffset = 80; // ヘッダーの高さ
+        const elementPosition = targetSection.offsetTop;
+        const offsetPosition = elementPosition - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
+    });
+  });
+</script>
 </body>
 </html>
