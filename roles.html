@@ -78,7 +78,7 @@
   </section>
 
   <section id="role-sim" class="container-section" aria-labelledby="role-sim-h2">
-    <h2 id="role-sim-h2">シュミレーション担当</h2>
+    <h2 id="role-sim-h2">シミュレーション担当</h2>
     <p>飛行挙動や落下特性のシミュレーション、数値解析やモデル作成を担当します。実験データからモデルを改善し、設計や制御へフィードバックします。</p>
   </section>
 
@@ -93,8 +93,19 @@
 <footer role="contentinfo">
   <p>© 2026 科学部缶サット班</p>
 </footer>
-
 <a href="#top" class="to-top" aria-label="ページトップへ移動" title="ページトップへ移動">▲</a>
+<script>
+  const menuBtn = document.querySelector('.menu-btn');
+  const nav = document.querySelector('#global-nav');
+
+  // ハンバーガーメニュー開閉
+  if (menuBtn && nav) {
+    menuBtn.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('show');
+      menuBtn.setAttribute('aria-expanded', isOpen);
+    });
+  }
+</script>
 
 </body>
 </html>
