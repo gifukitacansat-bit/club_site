@@ -6,150 +6,144 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="岐阜北高校 科学部缶サット班の沿革ページです。創設から現在までの歩みを紹介します。">
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #f5f5f5;
-      line-height: 1.6;
+<style>
+    html{scroll-behavior:smooth}
+    *{box-sizing:border-box}
+     body{
+      font-family:Arial,Helvetica,'ヒラギノ角ゴ ProN',Hiragino Kaku Gothic ProN,'メイリオ',Meiryo,sans-serif;margin:0;background:#f5f5f5;
+      line-height:1.7;color:#111;font-size:16px;}
+     h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); }
+     h2 { font-size: 1.4rem; }
+    header{background:#003366;color:#fff;padding:20px;text-align:center;min-height:150px}
+    nav{background:#0055aa;padding:10px;text-align:center;min-height:44px}
+    nav a{color:#fff;margin:0 10px;text-decoration:none;font-weight:700}
+    .container-section{background:#fff;margin:20px;padding:20px;border-radius:8px}
+    footer{text-align:center;padding:10px;color:#666}
+    .header-image{width:100%;max-width:600px;height:auto;margin:15px auto;display:block;border-radius:8px;aspect-ratio:2/1;object-fit:contain}
+    .to-top{position:fixed;bottom:20px;right:20px;background:#0055aa;color:#fff;padding:12px 15px;border-radius:50%;text-decoration:none;font-size:18px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;height:48px;width:48px}
+    .to-top:hover{background:#003366}
+    .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip-link:focus{left:10px;top:10px;width:auto;height:auto;padding:8px 12px;background:#003366;color:#fff;border-radius:4px;z-index:9999}
+    a:focus{outline:3px solid #ffbf47;outline-offset:3px}
+    /* --- ハンバーガーメニュー --- */
+    .menu-btn {display:none;position:absolute;top:15px;left:15px;background:transparent;color:#fff;border:none;padding:10px 12px;font-size:20px;border-radius:4px;cursor:pointer;z-index:1000;}
+    @media (max-width: 768px) {
+    nav {display:none;flex-direction:column;text-align:left;}
+    nav.show {display:flex;}
+    .menu-btn {display:block;}
+    nav a {display:block;padding:10px;margin:5px 0;}
     }
-    header {
-      background-color: #003366;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    nav {
-      background-color: #0055aa;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section {
-      background-color: white;
-      margin: 20px;
-      padding: 20px;
-      border-radius: 8px;
-    }
-    footer {
-      text-align: center;
-      padding: 10px;
-      color: #666;
-    }
-    .timeline {
-      border-left: 4px solid #0055aa;
-      padding-left: 15px;
-    }
-    .event {
-      margin-bottom: 20px;
-    }
-    .year {
-      font-weight: bold;
-      color: #003366;
-      font-size: 1.1em;
-    }
-    
-     .to-top {
-    position: fixed;        
-    bottom: 20px;           
-    right: 20px;            
-    background-color: #0055aa; 
-    color: white;          
-    padding: 12px 15px;     
-    border-radius: 50%;     
-    text-decoration: none;  
-    font-size: 18px;       
-    font-weight: bold;     
-    }
-
-    .to-top:hover {
-     background-color: #003366; 
-    }
-
+    nav a.active {background: #003366;padding: 6px 10px;border-radius: 4px;}
+    .timeline {border-left: 4px solid #0055aa;padding-left: 15px;}
+    .event {margin-bottom: 20px;}
+    .year {font-weight: bold;color: #003366;font-size: 1.1em;}
   </style>
 </head>
 <body>
 
+<a class="skip-link" href="#main">コンテンツへスキップ</a>
 <div id="top"></div>
-  
-<header>
-  <h1>部活の沿革</h1>
-  <p>科学部缶サット班</p>
+
+<header role="banner">
+  <button class="menu-btn" aria-label="メニューを開閉" aria-expanded="false" aria-controls="global-nav"> ☰ </button>
+
+  <h1>科学部缶サット班<br>公式サイト</h1>
+  <img src="images/sky.png" alt="公式マーク" class="header-image" width="600" height="300" loading="lazy" decoding="async">
+  <p>岐阜北高校</p>
 </header>
 
-<nav>
-  <a href="index.html">トップ</a>
+<nav id="global-nav" role="navigation" aria-label="メインナビゲーション">
+  <a href="index.html#about">部活紹介</a>
+  <a href="index.html#schedule">活動日</a>
+  <a href="index.html#place">活動場所</a>
+  <a href="index.html#members">部員構成</a>
+  <a href="index.html#responsibilities">担当</a>
+  <a href="index.html#music">音楽</a>
+  <a href="index.html#contact">お問い合わせ</a>
+  <a href="index.html#external">関連サイト</a>
   <a href="news.html">活動報告</a>
-  <a href="roles.html">担当紹介</a>
+  <a href="enkaku.html" class="active" aria-current="page">部活の沿革</a>
+  
 </nav>
+  
+<main id="main" role="main" tabindex="-1">
+  <section class="container-section">
+    <h2>これまでの歩み</h2>
 
-<section>
-  <h2>これまでの歩み</h2>
+    <div class="timeline">
+      <div class="event">
+        <div class="year">2016年</div>
+        <p>缶サット甲子園出場を目指して缶サットチームを設立</p>
+      </div>
 
-  <div class="timeline">
-    <div class="event">
-      <div class="year">2016年</div>
-      <p>缶サット甲子園出場を目指して缶サットチームを設立</p>
-    </div>
+      <div class="event">
+        <div class="year">2017年</div>
+        <p>缶サット、パラシュート制作に臨む</p>
+      </div>
 
-    <div class="event">
-      <div class="year">2017年</div>
-      <p>缶サット、パラシュート制作に臨む</p>
-    </div>
+      <div class="event">
+        <div class="year">2018年</div>
+        <p>岐阜地方大会出場　準優勝<br>全国大会出場　ベストプレゼンテーション賞</p>
+      </div>
 
-    <div class="event">
-      <div class="year">2018年</div>
-      <p>岐阜地方大会出場　準優勝<br>全国大会出場　ベストプレゼンテーション賞</p>
-    </div>
+      <div class="event">
+        <div class="year">2019年</div>
+        <p>岐阜地方大会出場</p>
+      </div>
 
-    <div class="event">
-      <div class="year">2019年</div>
-      <p>岐阜地方大会出場</p>
-    </div>
+      <div class="event">
+        <div class="year">2020年</div>
+        <p>岐阜地方大会出場　準優勝</p>
+      </div>
 
-    <div class="event">
-      <div class="year">2020年</div>
-      <p>岐阜地方大会出場　準優勝</p>
-    </div>
+      <div class="event">
+        <div class="year">2021年</div>
+        <p>岐阜地方大会出場　敢闘賞</p>
+      </div>
 
-    <div class="event">
-      <div class="year">2021年</div>
-      <p>岐阜地方大会出場　敢闘賞</p>
-    </div>
-
-     <div class="event">
-      <div class="year">2022年</div>
-      <p>全国大会オープン参加</p>
-    </div>
+      <div class="event">
+        <div class="year">2022年</div>
+        <p>全国大会オープン参加</p>
+      </div>
     
-    <div class="event">
-      <div class="year">2023年</div>
-      <p>岐阜地方大会出場　準優勝<br>全国大会出場</p>
-    </div>
+      <div class="event">
+        <div class="year">2023年</div>
+        <p>岐阜地方大会出場　準優勝<br>全国大会出場</p>
+      </div>
 
-    <div class="event">
-      <div class="year">2024年</div>
-      <p>岐阜地方大会出場　技術賞</p>
-    </div>
+      <div class="event">
+        <div class="year">2024年</div>
+        <p>岐阜地方大会出場　技術賞</p>
+      </div>
 
-     <div class="event">
-      <div class="year">2025年</div>
-      <p>岐阜地方大会出場　優勝</p>
-    </div>
+      <div class="event">
+        <div class="year">2025年</div>
+        <p>岐阜地方大会出場　優勝</p>
+      </div>
     
-  </div>
-</section>
-
-<footer>
+    </div>
+  </section>
+</main>
+  
+<footer role="contentinfo">
   <p>© 2026 科学部缶サット班</p>
+  <p>最終更新日：2026年1月</p>
 </footer>
 
 <a href="#top" class="to-top">▲</a>
+
+<script>
+  const menuBtn = document.querySelector('.menu-btn');
+  const nav = document.querySelector('#global-nav');
+
+  // ハンバーガーメニュー開閉
+  if (menuBtn && nav) {
+    menuBtn.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('show');
+      menuBtn.setAttribute('aria-expanded', isOpen);
+    });
+  }
+</script>
   
 </body>
 </html>
