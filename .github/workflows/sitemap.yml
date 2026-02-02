@@ -1,0 +1,29 @@
+name: Generate sitemap
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  generate-sitemap:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリを取得
+        uses: actions/checkout@v4
+
+      - name: sitemap.xml を生成
+        uses: cicirello/generate-sitemap@v1
+        with:
+          base-url-path: https://gifukitacansat-bit.github.io/club_site/
+          sitemap-format: xml
+
+      - name: sitemap.xml をコミットしてpush
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add sitemap.xml
+          git commit -m "Update sitemap.xml" || echo "No changes"
+          git push
