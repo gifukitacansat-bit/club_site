@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gifukitacansat-bit.github.io/club_site/sitemap.xml
