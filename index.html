@@ -36,6 +36,19 @@
     nav a {display:block;padding:10px;margin:5px 0;}
     }
     nav a.active {background: #003366;padding: 6px 10px;border-radius: 4px;}
+    /* --- 写真スライダー --- */
+    .slider-wrapper {position: relative;overflow: hidden;margin-top: 15px;}
+    .slider {display: flex;gap: 12px;overflow-x: auto;scroll-behavior: smooth;scrollbar-width: 
+      none; /* Firefox */}
+    .slider::-webkit-scrollbar {display: none; /* Chrome */}
+    .slider img {flex: 0 0 auto;width: 260px;height: 160px;object-fit: cover;border-radius: 8px;}
+    /* ボタン */
+    .slider-btn {position: absolute;top: 50%;transform: translateY(-50%);background: rgba(0, 85, 170, 0.9);
+                 color: #fff;border: none;font-size: 24px;width: 36px;height: 36px;border-radius: 50%;cursor: pointer;}
+    .slider-btn {opacity: 0.85;}
+    .slider-btn:hover {background: #003366;}
+    .slider-btn.prev { left: -10px; }
+    .slider-btn.next { right: -10px; }
   </style>
 </head>
 
@@ -97,6 +110,25 @@
     </ul>
   </section>
 
+  <section id="gallery" class="container-section" aria-labelledby="gallery-h2">
+    <h2 id="gallery-h2">活動写真</h2>
+    <p>制作・実験・大会など、普段の活動の様子です。</p>
+
+    <div class="slider-wrapper">
+      <button class="slider-btn prev" aria-label="前の写真">‹</button>
+
+      <div class="slider" id="photoSlider">
+        <img src="images/gallery1.jpg" alt="缶サットの組み立て作業">
+        <img src="images/gallery2.jpg" alt="基板設計の様子">
+        <img src="images/gallery3.jpg" alt="屋外実験の様子">
+        <img src="images/gallery4.jpg" alt="大会会場での集合写真">
+      </div>
+
+      <button class="slider-btn next" aria-label="次の写真">›</button>
+    </div>
+  </section>
+
+
   <section id="music" class="container-section" aria-labelledby="music-h2">
   <h2 id="music-h2">部活でよく聞く音楽</h2>
   <p>作業中によく聞いている音楽です。</p>
@@ -151,7 +183,24 @@
   });
 </script>
 
+<script>
+  const slider = document.getElementById('photoSlider');
+  const nextBtn = document.querySelector('.slider-btn.next');
+  const prevBtn = document.querySelector('.slider-btn.prev');
+
+  if (slider && nextBtn && prevBtn) {
+    const scrollAmount = 280;
+
+    nextBtn.addEventListener('click', () => {
+      slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+
+    prevBtn.addEventListener('click', () => {
+      slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+  }
+</script>
+
+
 </body>
 </html>
-
-
