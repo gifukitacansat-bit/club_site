@@ -40,6 +40,25 @@
     .article img {max-width: 100%;border-radius: 10px;margin-top: 10px;display: block;}
     .article img.vertical {max-height: 500px;width: auto;margin-left: auto;margin-right: auto;}
     .date {color: #777;font-size: 0.9em;}
+    /* ===== カードグリッド ===== */
+    .news {display: grid;grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));gap: 20px;}
+    /* ===== カード ===== */
+    .article {display: flex;flex-direction: column;background: #fff;border-radius: 12px;overflow: hidden;box-shadow: 0 4px 10px rgba(0,0,0,0.1);transition: 0.3s;}
+    .article:hover {transform: translateY(-5px);box-shadow: 0 8px 18px rgba(0,0,0,0.15);}
+    /* サムネイル */
+    .thumb {width: 100%;height: 180px;object-fit: cover;}
+    .thumb.vertical {object-fit: contain;background: #eee;}
+    /* 中身 */
+    .content {padding: 15px;}
+    .excerpt {font-size: 0.95em;color: #555;}
+    /* 日付 */
+    .date {font-size: 0.85em;color: #888;margin-bottom: 8px;}
+    /* NEWバッジ */
+    .badge {display: inline-block;background: red;color: #fff;font-size: 0.7em;padding: 3px 6px;border-radius: 4px;margin-bottom: 5px;}
+    /* NEW記事を強調 */
+    .article.new {border: 2px solid #ff4444;}
+    /* スマホ対応 */
+    @media (max-width: 600px) {.thumb {height: 150px;}}  
   </style>
 </head>
 <body>
@@ -68,153 +87,183 @@
 <main id="main" role="main" tabindex="-1">
   <div class="news">
      <div class="article">
-      <h2>大会1日目</h2>
-      <p class="date">2026年3月7日</p>
-      <p>なぜか当日に書く余裕が生まれました。
-         <br>１日目は缶サットをロケットで飛ばす日です。
-         <br>風が吹いていますが、無事飛ぶのでしょうか？
-         <br>少し不安ですが、大丈夫でしょう。
-         <br>全員眠いですが、頑張ろうと思います。
-         <br>果たして全国大会優勝できるのか...
-         <br>２月から３月の間に関しては、今後その事柄の日付として投稿します。
-         <br>気長にお待ちください。
-      </p>
+       <div class="content">
+          <h2>大会1日目</h2>
+          <p class="date">2026年3月7日</p>
+          <p>なぜか当日に書く余裕が生まれました。
+             <br>１日目は缶サットをロケットで飛ばす日です。
+             <br>風が吹いていますが、無事飛ぶのでしょうか？
+             <br>少し不安ですが、大丈夫でしょう。
+             <br>全員眠いですが、頑張ろうと思います。
+             <br>果たして全国大会優勝できるのか...
+             <br>２月から３月の間に関しては、今後その事柄の日付として投稿します。
+             <br>気長にお待ちください。
+          </p>
+       </div>  
      </div>    
      <div class="article">
-      <h2>久々の更新～</h2>
-      <p class="date">2026年2月11日</p>
-      <p>全然更新出来ずに申し訳ありませんでした！！
-         <br>大会と考査が迫り更新する余裕がなく...
-         <br>ウェブサイトもちょっとずつ拡充していますが、未完成な部分も多く...申し訳ないです。
-         <br>3月後半にまた更新すると思いますので、気長にお待ちください。
-         <br>祝日に更新しているのは察してください... 
-      </p>
+       <div class="content">
+         <h2>久々の更新～</h2>
+         <p class="date">2026年2月11日</p>
+          <p>全然更新出来ずに申し訳ありませんでした！！
+             <br>大会と考査が迫り更新する余裕がなく...
+             <br>ウェブサイトもちょっとずつ拡充していますが、未完成な部分も多く...申し訳ないです。
+             <br>3月後半にまた更新すると思いますので、気長にお待ちください。
+             <br>祝日に更新しているのは察してください...
+          </p>
+       </div>  
      </div>
         
      <div class="article">
-      <h2>ウェブサイト運営～</h2>
-      <p class="date">2026年2月02日</p>
-      <p>今日はウェブサイト更新に励みました。
-         <br>googleでは検索が出るのですが、edgeでは出ない...
-         <br>今日microsoftさんに申請をかけたので、引っかかるかなぁ...？
-         <br>ちなみに画像は土曜日の部活で食べた中国土産のカップラーメンです。
-         <br>美味しかったなぁ...
-      </p>
-      <img src="images/1000002210.jpg" alt="ラーメン" class="vertical" loading="lazy" decoding="async">
+       <img src="images/1000002210.jpg" alt="ラーメン" class="thumb">
+       <div class="content">
+         <h2>ウェブサイト運営～</h2>
+         <p class="date">2026年2月02日</p>
+         <p>今日はウェブサイト更新に励みました。
+            <br>googleでは検索が出るのですが、edgeでは出ない...
+            <br>今日microsoftさんに申請をかけたので、引っかかるかなぁ...？
+            <br>ちなみに画像は土曜日の部活で食べた中国土産のカップラーメンです。
+            <br>美味しかったなぁ...
+         </p>
+       </div>
      </div>
 
      <div class="article">
-      <h2>一人しか来ませんでしたぁ！！</h2>
-      <p class="date">2026年1月31日</p>
-      <p>今日から大会も近いこともあり、土曜部活が始まりました。朝9時から気が済むまで部活をやるのですが、
-         <br>今日９時までに部室に来た人はたったの一人。筆者は５分遅れで来ましたが、９時半現在でもたったの３人という...
-         <br>まぁほかの人も来るでしょ...多分...
-      </p>
-      <img src="images/s-WIN_20260131_09_09_15_Pro.jpg" alt="ubontu" loading="lazy" decoding="async" style="aspect-ratio:3/2">
+       <img src="images/s-WIN_20260131_09_09_15_Pro.jpg" alt="ubontu" class="thumb">
+       <div class="content">
+         <h2>一人しか来ませんでしたぁ！！</h2>
+         <p class="date">2026年1月31日</p>
+         <p>今日から大会も近いこともあり、土曜部活が始まりました。朝9時から気が済むまで部活をやるのですが、
+            <br>今日９時までに部室に来た人はたったの一人。筆者は５分遅れで来ましたが、９時半現在でもたったの３人という...
+            <br>まぁほかの人も来るでしょ...多分...
+         </p>
+       </div>    
      </div>
 
      <div class="article">
-      <h2>ビンゴまであと一人...!</h2>
-      <p class="date">2026年1月29日</p>
-      <p>今日はMEDARの方々と2004年度の自然科学部の部長さんが来られました。
-         <br>そして、自然科学部の看板の裏の歴代部長がまた一人埋まりました。
-         <br>あと全員埋まるまであと一人です！
-         <br>2005年度の部長さん見ていましたら是非書きに来てください！！！
-      </p>
-      <img src="images/s-WIN_20260129_16_41_11_Pro.jpg" alt="看板" class="vertical" loading="lazy" decoding="async">
+       <img src="images/s-WIN_20260129_16_41_11_Pro.jpg" alt="看板" class="thumb">
+       <div class="content">
+         <h2>ビンゴまであと一人...!</h2>
+         <p class="date">2026年1月29日</p>
+         <p>今日はMEDARの方々と2004年度の自然科学部の部長さんが来られました。
+            <br>そして、自然科学部の看板の裏の歴代部長がまた一人埋まりました。
+            <br>あと全員埋まるまであと一人です！
+            <br>2005年度の部長さん見ていましたら是非書きに来てください！！！
+         </p>
+       </div>
      </div>
 
     <div class="article">
-      <h2>PC引き戻し</h2>
-      <p class="date">2026年1月27日</p>
-      <p>今日はMEDARが運営するtechSTANDに行ける最後の日だったので、
-         <br>置いてきていたデスクトップPCを持ってきました。
-         <br>ただしOSがubontuという...windows11をインストールします...
-      </p>
-      <img src="images/s-WIN_20260127_16_56_12_Pro.jpg" alt="ubontu" loading="lazy" decoding="async" style="aspect-ratio:3/2">
+      <img src="images/s-WIN_20260127_16_56_12_Pro.jpg" alt="ubontu" class="thumb">
+      <div class="content">
+        <h2>PC引き戻し</h2>
+        <p class="date">2026年1月27日</p>
+        <p>今日はMEDARが運営するtechSTANDに行ける最後の日だったので、
+           <br>置いてきていたデスクトップPCを持ってきました。
+           <br>ただしOSがubontuという...windows11をインストールします...
+        </p>
+       </div>
      </div>
 
      <div class="article">
-      <h2>大雪</h2>
-      <p class="date">2026年1月21日</p>
-      <p>今日は大雪が降ると予報が出ていますが、
-         <br>部員はそんなことも気にせず部活を続行しています。
-         <br>なんでなのでしょうか？
-         <br>寄付も受付中です！！！！！！！！！ 
-      </p>
+       <div class="content">
+         <h2>大雪</h2>
+         <p class="date">2026年1月21日</p>
+         <p>今日は大雪が降ると予報が出ていますが、
+            <br>部員はそんなことも気にせず部活を続行しています。
+            <br>なんでなのでしょうか？
+            <br>寄付も受付中です！！！！！！！！！ 
+         </p>
+       </div>
     </div>
     
      <div class="article">
-      <h2>大須へパーツ探し</h2>
-      <p class="date">2026年1月10日</p>
-      <p>今日は部活メンバーほぼ全員で大須へばねやドローンを買いに行きました。
-         <br>その道中で大須観音へお参りをしたり、インド料理を食べたりしました。
-         <br>ちなみに筆者はおみくじを引き、大吉でした。とてもうれしいです！
-      </p>
-      <img src="images/1000002117.jpg" alt="大須観音" loading="lazy" decoding="async" style="aspect-ratio:3/2">
+       <img src="images/1000002117.jpg" alt="大須観音" class="thumb">
+       <div class="content">
+         <h2>大須へパーツ探し</h2>
+         <p class="date">2026年1月10日</p>
+         <p>今日は部活メンバーほぼ全員で大須へばねやドローンを買いに行きました。
+            <br>その道中で大須観音へお参りをしたり、インド料理を食べたりしました。
+            <br>ちなみに筆者はおみくじを引き、大吉でした。とてもうれしいです！
+         </p>
+       </div>   
     </div>
     
     <div class="article">
-      <h2>明けましておめでとうございます</h2>
-      <p class="date">2026年1月6日</p>
-      <p>皆様明けましておめでとうございます。今年もよろしくお願いします。
-         <br>今日からまた部活が始まりました。
-         <br>岐阜北高校生命館の外壁に缶サット班の全国出場の幕が掲げられました。
-         <br>全国大会まであと３ヵ月。部活総員で頑張っていきますので、応援・寄付をよろしくお願いします！
-      </p>
-      <img src="images/1000002107.jpg" alt="幕" class="vertical" loading="lazy" decoding="async">
+      <img src="images/1000002107.jpg" alt="幕" class="thumb">
+      <div class="content">
+        <h2>明けましておめでとうございます</h2>
+        <p class="date">2026年1月6日</p>
+        <p>皆様明けましておめでとうございます。今年もよろしくお願いします。
+           <br>今日からまた部活が始まりました。
+           <br>岐阜北高校生命館の外壁に缶サット班の全国出場の幕が掲げられました。
+           <br>全国大会まであと３ヵ月。部活総員で頑張っていきますので、応援・寄付をよろしくお願いします！
+        </p>
+      </div>
     </div>
+   
     <div class="article">
-      <h2>メリークリスマス！</h2>
-      <p class="date">2025年12月25日</p>
-      <p>皆様メリークリスマス！！
-         <br>私たちはこんな日でもいつも通り部活を行っています。（泣）
-         <br>ですが今日でそんな部活も今年は終わりとなります。
-         <br>来年も自然科学部缶サット班をよろしくお願いします。
-         <br>ちなみに筆者はこの日大阪観光に行っていました。（なんでや...）
-      </p>
-      <img src="images/1000002023.jpg" alt="通天閣" class="vertical" loading="lazy" decoding="async">
+      <img src="images/1000002023.jpg" alt="通天閣" class="thumb">
+      <div class="content">
+        <h2>メリークリスマス！</h2>
+        <p class="date">2025年12月25日</p>
+        <p>皆様メリークリスマス！！
+           <br>私たちはこんな日でもいつも通り部活を行っています。（泣）
+           <br>ですが今日でそんな部活も今年は終わりとなります。
+           <br>来年も自然科学部缶サット班をよろしくお願いします。
+           <br>ちなみに筆者はこの日大阪観光に行っていました。（なんでや...）
+        </p>
+      </div>
     </div>
     
     <div class="article">
-      <h2>3dプリンターの導入</h2>
-      <p class="date"><time datetime="2025-12-22">2025年12月22日</time></p>
-      <p>これまで故障してつかえなかった３dプリンターを新調して使えるようになりました。金欠です！！！！</p>
-    </div>
+      <div class="content">
+        <h2>3dプリンターの導入</h2>
+        <p class="date">2025年12月22日</p>
+        <p>これまで故障してつかえなかった３dプリンターを新調して使えるようになりました。金欠です！！！！</p>
+   
+      </div>
+    </div>  
 
     <!-- 既存記事 -->
     <div class="article">
-      <h2>話し合いをしました</h2>
-      <p class="date">2025年12月17日</p>
-      <p>
-        今日は久々に各担当が集まり、全国大会に関する話し合いを行いました。
-        <br>白熱した議論となり、長時間話し合いました。
-        <br>全国大会に向けて方針を改めて固めることができたので、これからも頑張ります。
-        <br>寄付も受付中です！！！！！！！！！ 
-      </p>
-      <img src="images/hue.jpg" alt="話し合いの様子" loading="lazy" decoding="async" style="aspect-ratio:3/2">
+      <img src="images/hue.jpg" alt="話し合いの様子" class="thumb">
+      <div class="content">
+        <h2>話し合いをしました</h2>
+        <p class="date">2025年12月17日</p>
+        <p>
+          今日は久々に各担当が集まり、全国大会に関する話し合いを行いました。
+          <br>白熱した議論となり、長時間話し合いました。
+          <br>全国大会に向けて方針を改めて固めることができたので、これからも頑張ります。
+          <br>寄付も受付中です！！！！！！！！！ 
+        </p>
+      </div>  
     </div>
 
     <div class="article">
-      <h2>大会に出場しました</h2>
-      <p class="date">2025年10月4日</p>
-      <p>
-        岐阜地方大会に出場し、日頃の成果を発揮しました。
-        <br>前日4日間にかなりの残業をしたおかげで優勝することができました。
-        <br>これから全国大会に向けてもう一度計画を練り直してしっかり準備を行い残業をしないように心がけたいです。
-        <br>これからも応援よろしくお願いします。
-        <br>寄付も受付中です！！！！！！！！！ 
-      </p>
-      <img src="images/tournament.jpg" alt="大会の様子" class="vertical" loading="lazy" decoding="async">
-    </div>
+      <img src="images/tournament.jpg" alt="大会の様子" class="thumb">
+      <div class="content">
+        <h2>大会に出場しました</h2>
+        <p class="date">2025年10月4日</p>
+        <p>
+          岐阜地方大会に出場し、日頃の成果を発揮しました。
+          <br>前日4日間にかなりの残業をしたおかげで優勝することができました。
+          <br>これから全国大会に向けてもう一度計画を練り直してしっかり準備を行い残業をしないように心がけたいです。
+          <br>これからも応援よろしくお願いします。
+          <br>寄付も受付中です！！！！！！！！！ 
+        </p>
+      </div>
+    </div>  
 
     <div class="article">
-      <h2>10月3日の練習風景</h2>
-      <p class="date">2025年10月3日</p>
-      <p>
-        この日は次の日に向けて急いで作業中です。帰宅時間は朝6時（翌日）でした。大会は8時からです。
-        <br>次はこうならないように計画を立てて実行して行くことを目標にします。(泣)
-      </p>
+      <div class="content">
+        <h2>10月3日の練習風景</h2>
+        <p class="date">2025年10月3日</p>
+        <p>
+          この日は次の日に向けて急いで作業中です。帰宅時間は朝6時（翌日）でした。大会は8時からです。
+          <br>次はこうならないように計画を立てて実行して行くことを目標にします。(泣)
+        </p>
+      </div>  
     </div>
 
   </div>
@@ -280,5 +329,42 @@
     });
   });
 </script>
+
+<script>
+  document.querySelectorAll('.thumb').forEach(img => {
+    if (img.complete) {
+      applyOrientation(img);
+    } else {
+      img.addEventListener('load', () => applyOrientation(img));
+    }
+  });
+
+  function applyOrientation(img) {
+    if (img.naturalHeight > img.naturalWidth) {
+      img.classList.add('vertical');
+    }
+  }
+// ===== NEW自動判定 =====
+document.querySelectorAll('.article').forEach(article => {
+  const dateText = article.querySelector('.date')?.textContent;
+  if (!dateText) return;
+
+  const date = new Date(dateText.replace(/年|月/g, '/').replace('日',''));
+  const now = new Date();
+
+  const diff = (now - date) / (1000 * 60 * 60 * 24);
+
+  if (diff <= 7) {
+    article.classList.add('new');
+
+    const badge = document.createElement('span');
+    badge.className = 'badge';
+    badge.textContent = 'NEW';
+
+    const content = article.querySelector('.content');
+    if (content) content.prepend(badge);
+  }
+});  
+</script>  
 </body>
 </html>
