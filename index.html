@@ -118,10 +118,6 @@
       <button class="slider-btn prev" aria-label="前の写真">‹</button>
 
       <div class="slider" id="photoSlider">
-        <img src="images/gallery1.jpg" alt="缶サットの組み立て作業">
-        <img src="images/gallery2.jpg" alt="基板設計の様子">
-        <img src="images/gallery3.jpg" alt="屋外実験の様子">
-        <img src="images/gallery4.jpg" alt="大会会場での集合写真">
       </div>
 
       <button class="slider-btn next" aria-label="次の写真">›</button>
@@ -150,7 +146,7 @@
     <p>
       インスタグラム：<a href="https://www.instagram.com/gfkt_cans/" target="_blank" rel="noopener noreferrer">https://www.instagram.com/gfkt_cans/</a>
       <br>
-      またはお問い合わせフォーム: <a href="https://forms.gle/Lfv4s1fXZB9yqqXR9" target="_blank" rel="noopener noreferrer">https://forms.gle/Lfv4s1fXZB9yqqXR9</a>
+      お問い合わせフォーム: <a href="https://forms.gle/Lfv4s1fXZB9yqqXR9" target="_blank" rel="noopener noreferrer">https://forms.gle/Lfv4s1fXZB9yqqXR9</a>
     </p>
   </section>
 
@@ -167,7 +163,7 @@
 
 <footer role="contentinfo">
   <p>© 2026 科学部缶サット班</p>
-  <p>最終更新日：2026年2月</p>
+  <p>最終更新日：2026年3月</p>
 </footer>
 
 <a href="#top" class="to-top" aria-label="ページトップへ移動" title="ページトップへ移動">▲</a>
@@ -200,8 +196,22 @@
     });
   }
 </script>
+  
+<script>
+fetch("images/images.json")
+  .then(res => res.json())
+  .then(files => {
+    const sliderElement = document.getElementById('photoSlider');
 
-
+    files.forEach(file => {
+      const img = document.createElement('img');
+      img.src = "images/" + file;
+      img.alt = "活動写真";
+      sliderElement.appendChild(img);
+    });
+  })
+  .catch(err => console.error("画像読み込みエラー:", err));
+</script>
 </body>
 </html>
 
