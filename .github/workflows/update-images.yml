@@ -17,7 +17,7 @@ jobs:
           echo "[" > images/images.json
           first=true
           for file in images/*; do
-            if [[ $file =~ \.(jpg|png|jpeg|webp)$ ]]; then
+            if [[ $file =~ \.(jpg|png|jpeg|webp)$ ]] && [[ $(basename "$file") != "sky.png" ]]; then
               name=$(basename "$file")
               if [ "$first" = true ]; then
                 echo "  \"$name\"" >> images/images.json
