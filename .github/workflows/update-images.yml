@@ -1,0 +1,38 @@
+name: Update images.json
+
+on:
+  push:
+    paths:
+      - 'images/*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Create images.json
+        run: |
+          echo "[" > images/images.json
+          first=true
+          for file in images/*; do
+            if [[ $file =~ \.(jpg|png|jpeg|webp)$ ]]; then
+              name=$(basename "$file")
+              if [ "$first" = true ]; then
+                echo "  \"$name\"" >> images/images.json
+                first=false
+              else
+                echo "  ,\"$name\"" >> images/images.json
+              fi
+            fi
+          done
+          echo "]" >> images/images.json
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add images/images.json
+          git commit -m "auto update images.json" || echo "no change"
+          git push
