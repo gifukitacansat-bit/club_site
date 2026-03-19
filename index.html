@@ -194,6 +194,23 @@
     prevBtn.addEventListener('click', () => {
       slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
     });
+
+    // --- 自動スライド関数 ---
+    function autoSlide() {
+      slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
+        slider.scrollTo({ left: 0, behavior: 'smooth' });
+      }
+    }
+
+    // --- 自動スライド開始 ---
+    let autoScroll = setInterval(autoSlide, 4000);
+
+    // マウスホバーで停止、離れたら再開
+    slider.addEventListener('mouseenter', () => clearInterval(autoScroll));
+    slider.addEventListener('mouseleave', () => {
+      autoScroll = setInterval(autoSlide, 4000);
+    });
   }
 </script>
   
@@ -201,6 +218,9 @@
 fetch("images/images.json")
   .then(res => res.json())
   .then(files => {
+    // 新しい順にソート（ファイル名順で降順）
+    files.sort((a, b) => b.localeCompare(a));
+
     const sliderElement = document.getElementById('photoSlider');
 
     files.forEach(file => {
@@ -208,10 +228,31 @@ fetch("images/images.json")
       img.src = "images/" + file;
       img.alt = "活動写真";
       sliderElement.appendChild(img);
+
+      // クリックで拡大
+      img.addEventListener('click', () => openModal(img.src));
     });
   })
   .catch(err => console.error("画像読み込みエラー:", err));
 </script>
+
+<div id="modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;
+    background:rgba(0,0,0,0.8);align-items:center;justify-content:center;z-index:10000;">
+  <img id="modalImg" src="" style="max-width:90%;max-height:90%;border-radius:8px;">
+</div>
+<script>
+function openModal(src) {
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modalImg');
+  modalImg.src = src;
+  modal.style.display = 'flex';
+}
+
+// モーダルクリックで閉じる
+document.getElementById('modal').addEventListener('click', () => {
+  document.getElementById('modal').style.display = 'none';
+});
+</script>  
 </body>
 </html>
 
