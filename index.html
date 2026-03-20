@@ -271,6 +271,14 @@ function openModal(src) {
 document.getElementById('modal').addEventListener('click', () => {
   document.getElementById('modal').style.display = 'none';
 });
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    const modal = document.getElementById('modal');
+    if (modal && modal.style.display === 'flex') {
+      modal.style.display = 'none';
+    }
+  }
+});  
 </script>  
 </body>
 </html>
