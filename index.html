@@ -202,38 +202,92 @@
 </script>
 
 <script>
+  function smoothScrollBy(element, distance, duration = 400) {
+  const start = element.scrollLeft;
+  const startTime = performance.now();
+
+  function animate(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+
+    const ease = 1 - Math.pow(1 - progress, 3); // ぬるぬる
+
+    element.scrollLeft = start + distance * ease;
+
+    if (progress < 1) requestAnimationFrame(animate);
+  }
+
+  requestAnimationFrame(animate);
+}
   const slider = document.getElementById('photoSlider');
   const nextBtn = document.querySelector('.slider-btn.next');
   const prevBtn = document.querySelector('.slider-btn.prev');
 
   if (slider && nextBtn && prevBtn) {
     const scrollAmount = 280;
-
-    nextBtn.addEventListener('click', () => {
-      slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    });
-
-    prevBtn.addEventListener('click', () => {
-      slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    });
+  nextBtn.addEventListener('click', () => {
+    smoothScrollBy(slider, scrollAmount);
+  });
+    
+  prevBtn.addEventListener('click', () => {
+    smoothScrollBy(slider, -scrollAmount);
+  });
 
     // --- 自動スライド関数 ---
     function autoSlide() {
-      slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      smoothScrollBy(slider, scrollAmount);
+    
       if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
-        slider.scrollTo({ left: 0, behavior: 'smooth' });
+        smoothScrollBy(slider, -slider.scrollLeft);
       }
     }
 
     // --- 自動スライド開始 ---
-    let autoScroll = setInterval(autoSlide, 4000);
-
-    // マウスホバーで停止、離れたら再開
-    slider.addEventListener('mouseenter', () => clearInterval(autoScroll));
-    slider.addEventListener('mouseleave', () => {
-      autoScroll = setInterval(autoSlide, 4000);
+    let autoScroll;
+    let isUserInteracting = false;
+    
+    function startAutoScroll() {
+      clearInterval(autoScroll);
+      autoScroll = setInterval(() => {
+        if (!isUserInteracting) {
+          autoSlide();
+        }
+      }, 4000);
+    }
+    
+    function stopAutoScroll() {
+      isUserInteracting = true;
+      clearInterval(autoScroll);
+    }
+    
+    function resumeAutoScroll() {
+      isUserInteracting = false;
+      startAutoScroll();
+    }
+    
+    // 初期スタート
+    startAutoScroll();
+    
+    // マウス操作
+    slider.addEventListener('mouseenter', stopAutoScroll);
+    slider.addEventListener('mouseleave', resumeAutoScroll);
+    
+    // タッチ操作
+    slider.addEventListener('touchstart', stopAutoScroll);
+    slider.addEventListener('touchend', () => {
+      setTimeout(resumeAutoScroll, 2000);
     });
-  }
+    
+    // 手動スクロール検知（神機能）
+    slider.addEventListener('scroll', () => {
+      stopAutoScroll();
+    
+      clearTimeout(slider._scrollTimeout);
+      slider._scrollTimeout = setTimeout(() => {
+        resumeAutoScroll();
+      }, 1500);
+    });
+    }
 </script>
 
 <script>  
@@ -311,9 +365,9 @@ if (slider) {
 
     if (Math.abs(diff) > 30) {
       if (diff > 0) {
-        slider.scrollBy({ left: 280, behavior: 'smooth' });
+        smoothScrollBy(slider, 280);
       } else {
-        slider.scrollBy({ left: -280, behavior: 'smooth' });
+        smoothScrollBy(slider, -280);
       }
     }
   });
