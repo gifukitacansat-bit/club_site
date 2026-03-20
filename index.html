@@ -279,6 +279,36 @@ document.addEventListener('keydown', (e) => {
     }
   }
 });  
+let startX = 0;
+let endX = 0;
+
+const slider = document.getElementById('photoSlider');
+const modal = document.getElementById('modal');  
+  
+if (slider) {
+
+  slider.addEventListener('touchstart', (e) => {
+    if (modal.style.display === 'flex') return;
+    startX = e.touches[0].clientX;
+  });
+
+  slider.addEventListener('touchend', (e) => {
+    if (modal.style.display === 'flex') return;
+
+    endX = e.changedTouches[0].clientX;
+
+    const diff = startX - endX;
+
+    if (Math.abs(diff) > 30) {
+      if (diff > 0) {
+        slider.scrollBy({ left: 280, behavior: 'smooth' });
+      } else {
+        slider.scrollBy({ left: -280, behavior: 'smooth' });
+      }
+    }
+  });
+
+}
 </script>  
 </body>
 </html>
