@@ -281,21 +281,27 @@ document.addEventListener('keydown', (e) => {
     }
   }
 });  
+</script>  
+
+<script>
+// ===== スワイプ処理 =====
 let startX = 0;
 let endX = 0;
 
 const slider = document.getElementById('photoSlider');
-const modal = document.getElementById('modal');  
-  
+
 if (slider) {
 
   slider.addEventListener('touchstart', (e) => {
-    if (modal.style.display === 'flex') return;
+    const modal = document.getElementById('modal');
+    if (modal && modal.style.display === 'flex') return;
+
     startX = e.touches[0].clientX;
   });
 
   slider.addEventListener('touchend', (e) => {
-    if (modal.style.display === 'flex') return;
+    const modal = document.getElementById('modal');
+    if (modal && modal.style.display === 'flex') return;
 
     endX = e.changedTouches[0].clientX;
 
@@ -314,6 +320,5 @@ if (slider) {
 </script>  
 </body>
 </html>
-
 
 
