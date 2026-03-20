@@ -232,6 +232,15 @@
     });
   }
 </script>
+
+<script>  
+function openModal(src) {
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modalImg');
+  modalImg.src = src;
+  modal.style.display = 'flex';
+}
+</script>
   
 <script>
 fetch("images/images.json")
@@ -260,13 +269,6 @@ fetch("images/images.json")
   <img id="modalImg" src="" style="max-width:90%;max-height:90%;border-radius:8px;">
 </div>
 <script>
-function openModal(src) {
-  const modal = document.getElementById('modal');
-  const modalImg = document.getElementById('modalImg');
-  modalImg.src = src;
-  modal.style.display = 'flex';
-}
-
 // モーダルクリックで閉じる
 document.getElementById('modal').addEventListener('click', () => {
   document.getElementById('modal').style.display = 'none';
